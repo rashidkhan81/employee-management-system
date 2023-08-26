@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>View All Employees</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<style>
+
+/* Add some padding to the container */
+.container {
+	padding: 50px 0;
+}
+
+/* Style the table */
+.table {
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 14px;
+	text-align: center;
+	margin-top: 30px;
+}
+
+/* Style the table headers */
+.table th {
+	background-color: #007bff;
+	color: #fff;
+	padding: 12px;
+	text-transform: uppercase;
+}
+
+/* Style the table rows */
+.table tr {
+	border-bottom: 1px solid #ddd;
+}
+
+/* Style the table data */
+.table td {
+	padding: 12px;
+}
+
+/* Add a hover effect to the table rows */
+.table tr:hover {
+	background-color: #f5f5f5;
+}
+</style>
+
+</head>
+<body>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Employee Management System</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="employees">Employees</a>
+            <a class="nav-item nav-link" href="deptlist">Departments</a>
+            <a class="nav-item nav-link" href="addEmp">Add Employee</a>
+             <a class="nav-item nav-link" href="addDept">Add Department</a>
+             <a class="nav-item nav-link"
+					th:href = "@{/admin/attendances}">Attendances</a>
+            
+          </div>
+        </div>
+      </nav>
+	<div class="container">
+		<h2 class="my-4">All Employees</h2>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Details</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="department : ${departments}">
+					<td th:text="${department.deptid}"></td>
+					<td th:text="${department.deptname}"></td>
+					<td th:text="${department.details}"></td>
+					
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
